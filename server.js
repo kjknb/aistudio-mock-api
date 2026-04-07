@@ -127,6 +127,12 @@ function simulateTaskProcessing(taskId) {
 //                    API ROUTES
 // ================================================================
 
+// ==================== MODULE 0: HEALTH ====================
+
+app.get('/api/health', (req, res) => {
+  res.json(success({ status: 'ok', version: '1.0.0', uptime: process.uptime(), modules: ['auth', 'model', 'project', 'task', 'chat', 'usage'] }));
+});
+
 // ==================== MODULE 1: AUTH (5 APIs) ====================
 
 // 1.1 用户注册
